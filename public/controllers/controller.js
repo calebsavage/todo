@@ -27,5 +27,23 @@ $scope.addItem = function(){
 
   };
 
+$scope.edit = function(id){
+  $http.get('/todo/' + id).success(function(response){
+    $scope.item = response;
+  });
+};
+
+$scope.update = function(id){
+  $http.put('/todo/' + $scope.item._id, $scope.item).success(function(response){
+    refresh();
+  });
+};
+
+$scope.remove = function(id){
+  $http.delete('/todo/' + id).success(function(response){
+    refresh();
+  });
+};
+
 
   }]);
