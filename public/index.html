@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-app="todo">
+<head>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-1.12.1.min.js" integrity="sha256-I1nTg78tSrZev3kjvfdM5A5Ak/blglGzlaZANLPDl3I="   crossorigin="anonymous"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+
+  <title>To Do List</title>
+</head>
+<body>
+
+<div class="container" ng-controller = "AppCtrl">
+
+<h1>Let's Acomplish Stuff.</h1>
+
+<div class="spacer col-md-3 col-xs-0"></div>
+
+<div class="input-box col-md-6 col-xs-12">
+  <h2>Add a task.</h2>
+  <input class="form-control" ng-model="item.title">
+
+  <div class="input-group date" data-provide="datepicker" >
+  <input type="text" class="form-control" ng-model="item.deadline">
+   <div class="input-group-addon">
+    <span class="glyphicon glyphicon-th"></span>
+   </div>
+  </div>
+     <button class="btn btn-primary" ng-click="addItem()">Add</button>
+
+</div>
+
+<div class="spacer col-md-3 col-xs-0"></div>
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <td>Status</td>
+      <td>Item</td>
+      <td>Deadline</td>
+      <td>Action</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat ="item in todolist">
+      <td>
+      {{item.status}}
+      </td>
+
+      <td>
+        {{item.title}}
+      </td>
+
+      <td>
+      {{item.deadline}}
+      </td>
+
+      <td>
+      edit, check off
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js">
+  </script>
+
+  <script src="controllers/controller.js">
+  </script>
+
+
+
+</body>
+</html>
