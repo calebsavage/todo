@@ -12,6 +12,7 @@
 <script src="https://code.jquery.com/jquery-1.12.1.min.js" integrity="sha256-I1nTg78tSrZev3kjvfdM5A5Ak/blglGzlaZANLPDl3I="   crossorigin="anonymous"></script>
 <script src="js/bootstrap-datepicker.js"></script>
 <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="css/style.css">
 
   <title>To Do List</title>
 </head>
@@ -19,7 +20,7 @@
 
 <div class="container" ng-controller = "AppCtrl">
 
-<h1>Let's Acomplish Stuff.</h1>
+<h1 class="text-center">Let's Acomplish Stuff.</h1>
 
 <div class="spacer col-md-3 col-xs-0"></div>
 
@@ -50,9 +51,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat ="item in todolist">
+    <tr ng-repeat ="item in todolist" class="{{item.status}}">
       <td>
-      {{item.status}}
+
+      <button class="btn btn-success" ng-click="setStatus(item._id, 'success')"></button>
+      <button class="btn btn-warning" ng-click="setStatus(item._id, 'warning')"></button>
+      <button class="btn btn-danger" ng-click="setStatus(item._id, 'danger')"></button>
+      <button class="btn btn-default" ng-click="setStatus(item._id, 'default')"></button>
+
       </td>
 
       <td>

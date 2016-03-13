@@ -46,4 +46,11 @@ $scope.remove = function(id){
 };
 
 
+$scope.setStatus = function(id, status){
+  $http.put('/status/' + id + '/' + status).success(function(response){
+    refresh();
+  });
+};
+
+
   }]);

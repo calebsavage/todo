@@ -47,6 +47,16 @@ new: true}, function(err,doc){
 });
 });
 
+app.put('/status/:id/:status', function(req,res){
+  var id = req.params.id;
+  var color = req.params.status;
+  db.todo.findAndModify({query: {_id: mongojs.ObjectId(id)},
+update: {$set: {status: color}},
+new: true}, function(err,doc){
+  res.json(doc);
+});
+})
+
 app.delete('/todo/:id', function(req,res){
   var id = req.params.id;
 
