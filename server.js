@@ -2,10 +2,8 @@ var express = require('express');
 var app = express();
 
 var mongojs = require('mongojs');
-var username = process.env.MONGO_USER
-var pwd = process.env.MONGO_PWD
 
-var db = mongojs(username + ":" + pwd + "@ds011379.mlab.com:11379/heroku_zbt2cxx1", ['todo']);
+var db = mongojs(process.env.MONGOLAB_URI , ['todo']);
 
 
 
