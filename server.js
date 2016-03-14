@@ -3,7 +3,7 @@ var app = express();
 
 var mongojs = require('mongojs');
 
-var db = mongojs(process.env.MONGOLAB_URI , ['todo']);
+var db = mongojs(process.env.MONGOLAB_URI, ['todo']);
 
 
 
@@ -68,5 +68,5 @@ app.delete('/todo/:id', function(req,res){
   });
 });
 
-app.listen(80);
-console.log("server running on port 80");
+app.listen(3000);
+console.log("server running on port 3000  ");
